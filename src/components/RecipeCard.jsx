@@ -7,4 +7,6 @@ function RecipeCard({ recipe, onClick }) {
   );
 }
 
-export default RecipeCard;
+export default RecipeCard; 
+
+
