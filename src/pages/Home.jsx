@@ -3,10 +3,13 @@ import { setRecipes, setSelected } from "../core/Actions/RecipeActions";
 import { searchRecipes } from "../api/RecipesApi";
 import SearchBar from "../components/SearchBar";
 import RecipeCard from "../components/RecipeCard";
+import Navbar from "../components/NavBar";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const recipes = useSelector((state) => state.recipes.list);
 
@@ -15,26 +18,44 @@ function Home() {
     const results = await searchRecipes(ingredient);
 
     dispatch(setRecipes(results));
+
   };
 
   const handleRecipeClick = (recipe) => {
+
     dispatch(setSelected(recipe));
+
+    navigate("/recipe");
+
   };
 
   return (
     <div>
 
+      <Navbar />
+
       <h1>Recipe Finder</h1>
 
       <SearchBar onSearch={handleSearch} />
 
-      {recipes.map((recipe) => (
-        <RecipeCard
-          key={recipe.idMeal}
-          recipe={recipe}
-          onClick={handleRecipeClick}
-        />
-      ))}
+      {/* Mensaje si aún no hay recetas */}
+      {recipes.length === 0 && (
+        <p>Search an ingredient to discover delicious recipes 🍝</p>
+      )}
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+
+        {recipes.map((recipe) => (
+
+          <RecipeCard
+            key={recipe.idMeal}
+            recipe={recipe}
+            onClick={handleRecipeClick}
+          />
+
+        ))}
+
+      </div>
 
     </div>
   );
