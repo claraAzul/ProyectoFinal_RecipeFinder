@@ -38,7 +38,7 @@ function Home() {
 
       <SearchBar onSearch={handleSearch} />
 
-      {/* Mensaje si aún no hay recetas */}
+      
       {recipes.length === 0 && (
         <p>Search an ingredient to discover delicious recipes 🍝</p>
       )}

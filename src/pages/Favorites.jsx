@@ -38,7 +38,7 @@ function Favorites() {
               onClick={handleRecipeClick}
             />
 
-            {/* Botón para eliminar favorito */}
+           
             <button
               onClick={() => handleRemoveFavorite(recipe)}
               style={{

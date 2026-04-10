@@ -3,7 +3,7 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const SET_SELECTED = "SET_SELECTED";
 
-// Action creators
+
 export const setRecipes = (recipes) => ({
   type: SET_RECIPES,
   payload: recipes,
