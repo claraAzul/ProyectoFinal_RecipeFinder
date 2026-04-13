@@ -5,57 +5,52 @@ import SearchBar from "../components/SearchBar";
 import RecipeCard from "../components/RecipeCard";
 import Navbar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
+import "../styles/HomeLayout.css";
 
 function Home() {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const recipes = useSelector((state) => state.recipes.list);
 
   const handleSearch = async (ingredient) => {
-
     const results = await searchRecipes(ingredient);
-
     dispatch(setRecipes(results));
-
   };
 
   const handleRecipeClick = (recipe) => {
-
     dispatch(setSelected(recipe));
-
     navigate("/recipe");
-
   };
 
   return (
-    <div>
+    <div className="home-container">
 
-      <Navbar />
+      <div className="content">
 
-      <h1>Recipe Finder</h1>
+        <h1>Recipe Finder</h1>
 
-      <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} />
 
-      
-      {recipes.length === 0 && (
-        <p>Search an ingredient to discover delicious recipes 🍝</p>
-      )}
+        {recipes.length === 0 && (
+          <p className="empty-text">
+            Search an ingredient to discover delicious recipes 
+          </p>
+        )}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-
-        {recipes.map((recipe) => (
-
-          <RecipeCard
-            key={recipe.idMeal}
-            recipe={recipe}
-            onClick={handleRecipeClick}
-          />
-
-        ))}
+        <div className="grid">
+          {recipes.map((recipe) => (
+            <RecipeCard
+              key={recipe.idMeal}
+              recipe={recipe}
+              onClick={handleRecipeClick}
+            />
+          ))}
+        </div>
 
       </div>
+
+      <Navbar />
 
     </div>
   );
