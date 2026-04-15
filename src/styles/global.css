@@ -28,4 +28,9 @@ a {
 button {
   cursor: pointer;
   font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
 }

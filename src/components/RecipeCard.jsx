@@ -1,3 +1,5 @@
+import "../styles/RecipeCardStyle.css";
+
 function RecipeCard({ recipe, onClick }) {
   return (
     <div className="recipe-card" onClick={() => onClick(recipe)}>

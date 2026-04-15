@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 2px solid #c75133;
+}
+
+button {
+  background-color: #c75133;
+  color: white;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.9;
+}
