@@ -1,0 +1,59 @@
+.favorites-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.favorites-content {
+  flex: 1;
+  padding: 5%;
+  padding-bottom: 100px;
+  overflow-y: auto;
+}
+
+
+.favorites-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.favorites-empty {
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+
+.favorites-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+
+.favorite-card-wrapper {
+  position: relative;
+}
+
+
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  background-color: #c75133;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  transition: opacity 0.2s ease;
+}
+
+.remove-button:hover {
+  opacity: 0.85;
+}
