@@ -52,7 +52,7 @@
 
 .detail-title {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 
   flex: 1;                       
   min-width: 0;                 
@@ -90,6 +90,13 @@
   transform: scale(0.97);
 }
 
+.heart-icon {
+  fill: none;
+}
+
+.heart-icon.filled {
+  fill: #c75133;
+}
 
 .detail-section {
   margin-bottom: 1.5rem;

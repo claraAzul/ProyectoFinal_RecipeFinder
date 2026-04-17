@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setRecipes } from "../core/Actions/RecipeActions";
 import { searchRecipes } from "../api/RecipesApi";
-import SearchBar from "../components/SearchBar";
+import Header from "../components/Header";
 import RecipeList from "../components/RecipeList";
 import Navbar from "../components/NavBar";
 
@@ -20,9 +20,7 @@ function Home() {
 
       <div className="content">
 
-        <h1>Recipe Finder</h1>
-
-        <SearchBar onSearch={handleSearch} />
+        <Header onSearch={handleSearch} />
 
         <RecipeList />
 

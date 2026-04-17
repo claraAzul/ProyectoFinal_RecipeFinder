@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  background-image: url("../assets/salad-with-tomatoes-arugula-burrata-cheese-microgreens-green-stone-background-top-view-copy-space.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+
+  padding: 2rem 1rem;
+  border-radius: 12px;
+}
+
+h1 {
+    color: white;
+}
