@@ -1,21 +1,9 @@
-/* const BASE_URL = "https://www.themealdb.com/api/json/v1/1";
+import { API_CONFIG } from "./ApiConfig";
 
 export const searchRecipes = async (ingredient) => {
-
-  const response = await fetch(
-    `${BASE_URL}/search.php?s=${ingredient}`
-  );
-
-  const data = await response.json();
-
-  return data.meals || [];
-}; */
-
-
-const BASE_URL = "https://www.themealdb.com/api/json/v1/1";
-
-export const searchRecipes = async (ingredient) => {
-  const response = await fetch(`${BASE_URL}/search.php?s=${ingredient}`);
+  const url =`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.SEARCH}?s=${ingredient}`;
+  
+  const response = await fetch(url);
   const data = await response.json();
 
   if (!data.meals) return [];
