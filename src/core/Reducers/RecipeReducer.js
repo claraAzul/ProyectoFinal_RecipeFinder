@@ -26,13 +26,14 @@ export const recipeReducer = (state = initialState, action) => {
         favorites: [...state.favorites, action.payload],
       };
 
-    case REMOVE_FAVORITE:
-      return {
-        ...state,
-        favorites: state.favorites.filter(
-          (r) => r.idMeal !== action.payload.idMeal
-        ),
-      };
+case "REMOVE_FAVORITE":
+  return {
+    ...state,
+    favorites: state.favorites.filter(
+      (fav) => fav.idMeal !== action.payload
+    ),
+  };
+
 
     case SET_SELECTED:
       return {

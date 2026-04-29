@@ -19,6 +19,7 @@ export const removeFavorite = (recipe) => ({
   payload: recipe,
 });
 
+
 export const setSelected = (recipe) => ({
   type: SET_SELECTED,
   payload: recipe,
