@@ -76,16 +76,11 @@ function RecipeDetail() {
                     <li key={index}>{ingredient}</li>
                   ))}
               </ul>
-            </div>
+          {/*   </div>
+          
 
 
-            <div className="detail-section">
-              <h3 className="section-title">Preparation</h3>
-              <p className="instructions-text">
-                {recipe.strInstructions}
-              </p>
-            </div>
-            <div className="recipe-actions-bar">
+            <div className="detail-section"> */}<div className="recipe-actions-bar">
   
   <button className="bar-action">
     <svg
@@ -125,7 +120,13 @@ function RecipeDetail() {
     <span>Copy</span>
   </button>
 
-</div>
+</div>  </div><div className="preparation-section">
+              <h3 className="section-title">Preparation</h3>
+              <p className="instructions-text">
+                {recipe.strInstructions}
+              </p>
+            </div>
+            
           </>
         )}
 
