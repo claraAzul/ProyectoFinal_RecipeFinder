@@ -24,27 +24,27 @@ export const recipeReducer = (state = initialState, action) => {
       };
 
     case ADD_FAVORITE: {
-  const updated = [...state.favorites, action.payload];
-  localStorage.setItem("favorites", JSON.stringify(updated));
+      const updated = [...state.favorites, action.payload];
+      localStorage.setItem("favorites", JSON.stringify(updated));
 
-  return {
-    ...state,
-    favorites: updated,
-  };
-}
+      return {
+        ...state,
+        favorites: updated,
+      };
+    }
 
-case "REMOVE_FAVORITE": {
-  const updated = state.favorites.filter(
-    (fav) => fav.idMeal !== action.payload
-  );
+    case "REMOVE_FAVORITE": {
+      const updated = state.favorites.filter(
+        (fav) => fav.idMeal !== action.payload
+      );
 
-  localStorage.setItem("favorites", JSON.stringify(updated));
+      localStorage.setItem("favorites", JSON.stringify(updated));
 
-  return {
-    ...state,
-    favorites: updated,
-  };
-}
+      return {
+        ...state,
+        favorites: updated,
+      };
+    }
 
 
     case SET_SELECTED:
@@ -53,17 +53,17 @@ case "REMOVE_FAVORITE": {
         selected: action.payload,
       };
 
-case SET_SEARCH_RESULTS:
-  return {
-    ...state,
-    searchResults: action.payload,
-  };
+    case SET_SEARCH_RESULTS:
+      return {
+        ...state,
+        searchResults: action.payload,
+      };
 
-  case RESET_HOME:
-  return {
-    ...state,
-    searchResults: [],
-  };
+    case RESET_HOME:
+      return {
+        ...state,
+        searchResults: [],
+      };
 
     default:
       return state;

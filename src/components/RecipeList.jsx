@@ -7,7 +7,7 @@ function RecipeList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
- 
+
   const list = useSelector((state) => state.recipes.list) || [];
   const searchResults = useSelector(
     (state) => state.recipes.searchResults
@@ -43,3 +43,4 @@ function RecipeList() {
 }
 
 export default RecipeList;
+

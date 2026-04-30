@@ -13,8 +13,8 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/recipe" element={<RecipeDetail />} />
-
         <Route path="/favorites" element={<Favorites />} />
+
 
       </Routes>
 

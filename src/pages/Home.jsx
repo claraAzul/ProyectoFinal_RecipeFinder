@@ -12,17 +12,21 @@ import Navbar from "../components/NavBar";
 
 import { recipesMock } from "../mocks/RecipesMock";
 
+
+
 import "../styles/HomeLayout.css";
 
 function Home() {
   const dispatch = useDispatch();
 
 
+
+
   useEffect(() => {
     dispatch(setRecipes(recipesMock));
   }, [dispatch]);
 
-  
+
   const handleSearch = async (ingredient) => {
     const results = await searchRecipes(ingredient);
 
@@ -32,6 +36,9 @@ function Home() {
       dispatch(setSearchResults([]));
     }
   };
+
+
+
 
   return (
     <div className="home-container">
