@@ -2,6 +2,8 @@ export const SET_RECIPES = "SET_RECIPES";
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const SET_SELECTED = "SET_SELECTED";
+export const SET_SEARCH_RESULTS = "SET_SEARCH_RESULTS";
+export const RESET_HOME = "RESET_HOME";
 
 
 export const setRecipes = (recipes) => ({
@@ -23,4 +25,15 @@ export const removeFavorite = (recipe) => ({
 export const setSelected = (recipe) => ({
   type: SET_SELECTED,
   payload: recipe,
+});
+
+
+
+ export const setSearchResults = (results) => ({
+  type: SET_SEARCH_RESULTS,
+  payload: results,
+}); 
+
+export const resetHome = () => ({
+  type: RESET_HOME,
 });

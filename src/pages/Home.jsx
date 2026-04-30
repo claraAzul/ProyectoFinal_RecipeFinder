@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setRecipes } from "../core/Actions/RecipeActions";
+import {
+  setRecipes,
+  setSearchResults,
+} from "../core/Actions/RecipeActions";
 import { searchRecipes } from "../api/RecipesApi";
 
 import Header from "../components/Header";
@@ -22,14 +25,22 @@ function Home() {
   
   const handleSearch = async (ingredient) => {
     const results = await searchRecipes(ingredient);
-    dispatch(setRecipes(results));
+
+    if (results && results.length > 0) {
+      dispatch(setSearchResults(results));
+    } else {
+      dispatch(setSearchResults([]));
+    }
   };
 
   return (
     <div className="home-container">
       <div className="content">
+
         <Header onSearch={handleSearch} />
+
         <RecipeList />
+
       </div>
 
       <Navbar />

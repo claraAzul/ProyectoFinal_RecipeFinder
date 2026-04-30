@@ -4,16 +4,24 @@ import { useNavigate } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 
 function RecipeList() {
-  const recipes = useSelector((state) => state.recipes.list) || [];
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+ 
+  const list = useSelector((state) => state.recipes.list) || [];
+  const searchResults = useSelector(
+    (state) => state.recipes.searchResults
+  ) || [];
+
+  const recipesToShow =
+    searchResults.length > 0 ? searchResults : list;
 
   const handleRecipeClick = (recipe) => {
     dispatch(setSelected(recipe));
     navigate("/recipe");
   };
 
-  if (recipes.length === 0) {
+  if (recipesToShow.length === 0) {
     return (
       <p className="empty-text">
         Search an ingredient to discover delicious recipes
@@ -23,7 +31,7 @@ function RecipeList() {
 
   return (
     <div className="grid">
-      {recipes.map((recipe) => (
+      {recipesToShow.map((recipe) => (
         <RecipeCard
           key={recipe.idMeal}
           recipe={recipe}

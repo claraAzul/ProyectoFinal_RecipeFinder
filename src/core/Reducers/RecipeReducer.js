@@ -3,12 +3,15 @@ import {
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_SELECTED,
+  SET_SEARCH_RESULTS,
+  RESET_HOME,
 } from "../Actions/RecipeActions";
 
 const initialState = {
   list: [],
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem("favorites")) || [],
   selected: null,
+  searchResults: [],
 };
 
 export const recipeReducer = (state = initialState, action) => {
@@ -20,19 +23,28 @@ export const recipeReducer = (state = initialState, action) => {
         list: action.payload,
       };
 
-    case ADD_FAVORITE:
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload],
-      };
+    case ADD_FAVORITE: {
+  const updated = [...state.favorites, action.payload];
+  localStorage.setItem("favorites", JSON.stringify(updated));
 
-case "REMOVE_FAVORITE":
   return {
     ...state,
-    favorites: state.favorites.filter(
-      (fav) => fav.idMeal !== action.payload
-    ),
+    favorites: updated,
   };
+}
+
+case "REMOVE_FAVORITE": {
+  const updated = state.favorites.filter(
+    (fav) => fav.idMeal !== action.payload
+  );
+
+  localStorage.setItem("favorites", JSON.stringify(updated));
+
+  return {
+    ...state,
+    favorites: updated,
+  };
+}
 
 
     case SET_SELECTED:
@@ -41,7 +53,20 @@ case "REMOVE_FAVORITE":
         selected: action.payload,
       };
 
+case SET_SEARCH_RESULTS:
+  return {
+    ...state,
+    searchResults: action.payload,
+  };
+
+  case RESET_HOME:
+  return {
+    ...state,
+    searchResults: [],
+  };
+
     default:
       return state;
   }
 };
+
