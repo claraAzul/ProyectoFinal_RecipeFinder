@@ -76,11 +76,7 @@ function RecipeDetail() {
                     <li key={index}>{ingredient}</li>
                   ))}
               </ul>
-          {/*   </div>
-          
-
-
-            <div className="detail-section"> */}<div className="recipe-actions-bar">
+         <div className="recipe-actions-bar">
   
   <button className="bar-action">
     <svg

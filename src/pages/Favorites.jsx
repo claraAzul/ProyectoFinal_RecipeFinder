@@ -16,9 +16,9 @@ function Favorites() {
     navigate("/recipe");
   };
 
-  const handleRemoveFavorite = (recipe) => {
-    dispatch(removeFavorite(recipe));
-  };
+   const handleRemoveFavorite = (recipe) => {
+  dispatch(removeFavorite(recipe.idMeal));
+};
 
   return (
     <div className="favorites-container">
